@@ -18,6 +18,7 @@ public class ResultActivity extends AppCompatActivity {
     private Button shareBtn;
     private String url;
     private Boolean resultado_imagen;
+    private static final String TAG = "Results";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,19 @@ public class ResultActivity extends AppCompatActivity {
         shareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                compartirDatos();
             }
         });
+    }
+
+    private void compartirDatos() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Compartir Datos");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, url);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, resultado_imagen);
+        startActivity(Intent.createChooser(shareIntent, "Compartir"));
     }
 
     private void abrirURL() {
@@ -54,10 +65,15 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
+
+        Log.d(TAG, "Request Code: " + requestCode);
+        Log.d(TAG, "Result Code: " + resultCode);
+        /*
+        if (requestCode == 1) {
             Toast.makeText(getApplicationContext(), "URL: " + url, Toast.LENGTH_LONG).show();
+        } else {
             Toast.makeText(getApplicationContext(), "Resultado imágen: " + resultado_imagen, Toast.LENGTH_LONG).show();
-        }
+        } */
     }
 
 }
