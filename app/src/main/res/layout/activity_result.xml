@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ResultActivity">
 
     <ImageView
         android:id="@+id/Logo"
@@ -16,57 +16,47 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tituloCarga"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/seccion_imagenes"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo" />
-
-    <ImageView
-        android:id="@+id/imagen_view"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:contentDescription="@string/logo"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloCarga" />
-
     <Button
-        android:id="@+id/btnCargarImagen"
+        android:id="@+id/btnURL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:background="@color/design_default_color_background"
         android:paddingHorizontal="20dp"
-        android:text="@string/cargar_imagen"
+        android:text="@string/abrir_web"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imagen_view"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintTop_toBottomOf="@id/Logo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnSiguiente"
+        android:id="@+id/btnCompartir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:background="@color/design_default_color_background"
         android:paddingHorizontal="20dp"
-        android:text="@string/siguiente"
+        android:text="@string/compartir_informacion"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintHorizontal_bias="0.959"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imagen_view"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintTop_toBottomOf="@id/Logo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="412dp"
+        android:layout_height="544dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCompartir">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
