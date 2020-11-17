@@ -48,15 +48,4 @@
         app:layout_constraintTop_toBottomOf="@id/Logo"
         app:layout_constraintVertical_bias="0.0" />
 
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="412dp"
-        android:layout_height="544dp"
-        android:layout_marginTop="34dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCompartir">
-
-    </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private Boolean resultadoImagen = false;
-    ImageView imagenView;
-    Button cargarImagenBtn;
-    Button siguienteBtn;
+    private ImageView imagenView;
+    private Button cargarImagenBtn;
+    private Button siguienteBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
