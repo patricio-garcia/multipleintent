@@ -18,7 +18,7 @@ public class ResultActivity extends AppCompatActivity {
     private Button shareBtn;
     private String url;
     private Boolean resultado_imagen;
-    private static final String TAG = "Results";
+    private static final String TAG = "Results_Activity";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,13 +47,12 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void compartirDatos() {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        Intent shareIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
         shareIntent.setType("text/plain");
 
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Compartir Datos");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, url);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, resultado_imagen);
-        startActivity(Intent.createChooser(shareIntent, "Compartir"));
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "URL" + url + "\n" + "Imagen se cargó " + resultado_imagen.toString());
+        startActivity(Intent.createChooser(shareIntent, "Compartir Datos"));
     }
 
     private void abrirURL() {
@@ -65,9 +64,9 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        //Toast.makeText(getApplicationContext(), "requestCode: " + requestCode, Toast.LENGTH_LONG).show();
         Log.d(TAG, "Request Code: " + requestCode);
-        Log.d(TAG, "Result Code: " + resultCode);
+        //Log.d(TAG, "Result Code: " + resultCode);
         /*
         if (requestCode == 1) {
             Toast.makeText(getApplicationContext(), "URL: " + url, Toast.LENGTH_LONG).show();
