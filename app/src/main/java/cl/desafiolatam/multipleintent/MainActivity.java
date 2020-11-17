@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,10 +66,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void siguienteConDatos() {
-        Intent sendIntent = new Intent(this, ResultActivity.class);
-        sendIntent.putExtra("url_desafiolatam", "https://www.desafiolatam.com/");
-        //sendIntent.putExtra("resultado_imagen", resultadoImagen);
-        sendIntent.putExtra("resultado_imagen", resultadoImagen);
-        startActivity(sendIntent);
+        if (resultadoImagen == true) {
+            Intent sendIntent = new Intent(this, ResultActivity.class);
+            sendIntent.putExtra("url_desafiolatam", "https://www.desafiolatam.com/");
+            //sendIntent.putExtra("resultado_imagen", resultadoImagen);
+            sendIntent.putExtra("resultado_imagen", resultadoImagen);
+            startActivity(sendIntent);
+        } else {
+            Toast.makeText(getApplicationContext(), "No se tomó fotografia, no puede avanzar", Toast.LENGTH_LONG).show();
+        }
     }
 }

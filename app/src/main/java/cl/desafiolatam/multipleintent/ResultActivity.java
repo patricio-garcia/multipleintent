@@ -19,22 +19,6 @@ public class ResultActivity extends AppCompatActivity {
     private String url;
     private Boolean resultado_imagen;
 
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-
-            //Log.d(TAG, "URL" + data.getStringExtra("url_desafiolatam"));
-            //Log.d(TAG, "URL" + data.getBooleanExtra("resultado_imagen", false));
-
-            Toast.makeText(getApplicationContext(), "URL: " + url, Toast.LENGTH_LONG).show();
-            Toast.makeText(getApplicationContext(), "Resultado imágen: " + resultado_imagen, Toast.LENGTH_LONG).show();
-
-        }
-
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,4 +50,14 @@ public class ResultActivity extends AppCompatActivity {
         Intent intentURL = new Intent(Intent.ACTION_VIEW, uriWeb);
         startActivity(intentURL);
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Toast.makeText(getApplicationContext(), "URL: " + url, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Resultado imágen: " + resultado_imagen, Toast.LENGTH_LONG).show();
+        }
+    }
+
 }
