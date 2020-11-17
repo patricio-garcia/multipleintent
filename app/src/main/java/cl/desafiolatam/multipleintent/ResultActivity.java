@@ -24,6 +24,7 @@ public class ResultActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        Log.d(TAG,"metodo onCreate");
         url = getIntent().getStringExtra("url_desafiolatam");
         resultado_imagen = getIntent().getBooleanExtra("resultado_imagen", false);
         webBtn = findViewById(R.id.btnURL);
@@ -47,7 +48,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void compartirDatos() {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
 
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Compartir Datos");
