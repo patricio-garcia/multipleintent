@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             Bitmap imagenBitmap = (Bitmap) extras.get("data");
             imagenView.setImageBitmap(imagenBitmap);
             resultadoImagen = true;
+            siguienteBtn.setEnabled(true); //Se habilita botón Siguiente
         } else {
             resultadoImagen = false;
         }
